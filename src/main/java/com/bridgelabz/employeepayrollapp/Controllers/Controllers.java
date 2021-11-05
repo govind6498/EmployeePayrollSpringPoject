@@ -25,11 +25,13 @@ public class Controllers {
 	
 	@Autowired
 	private IEmployeePayrollService employeePayrollService;
+	
 	@RequestMapping(value= {"","/","/get"})
 	public ResponseEntity<ResponseDTO> getEmployeePayrollData(){
 		List<EmployeePayrollData> empDataList = null;
 		empDataList = employeePayrollService.getEmployeePayrollData();
 		ResponseDTO respDTO = new ResponseDTO("Get Call Success",empDataList);
+//		respDTO.getData();
 		return new ResponseEntity<ResponseDTO>(respDTO,HttpStatus.OK);
 	}
 	@GetMapping("/get/{empId}")
